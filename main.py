@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, send_file
 import os
 import uuid
 import subprocess
+import sys
 import shutil
 
 app = Flask(__name__)
@@ -21,14 +22,18 @@ def download():
     mp4_path = os.path.join(DOWNLOAD_FOLDER, mp4_filename)
     mp3_path = os.path.join(DOWNLOAD_FOLDER, mp3_filename)
 
+    # ✅ yt-dlp command with user-agent to bypass bot detection
     cmd = [
         "yt-dlp",
-        "-f", "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4",
+        "--user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        "--no-playlist",
+        "-f", "best[ext=mp4]/best",
         "-o", mp4_path,
         url
     ]
     subprocess.run(cmd)
 
+    # ✅ Convert to MP3 if MP4 exists
     if shutil.which("ffmpeg") and os.path.exists(mp4_path):
         subprocess.run([
             "ffmpeg", "-i", mp4_path, "-vn", "-ab", "128k", "-ar", "44100", "-y", mp3_path
@@ -55,5 +60,5 @@ def serve_file_and_delete(filename):
         return "File not found.", 404
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host="0.0.0.0", port=port)
+    port = int(sys.argv[1]) if len(sys.argv) > 1 else 5000
+    app.run(debug=True, port=port)
