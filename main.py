@@ -61,4 +61,5 @@ def serve_file_and_delete(filename):
 
 if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 5000
-    app.run(debug=True, port=port)
+    app.run(debug=True, host="0.0.0.0", port=port)
+
