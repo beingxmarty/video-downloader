@@ -1,0 +1,83 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.container {
+    max-width: 500px;
+    margin: 100px auto 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+h1, h2 {
+    color: #00a97f;
+}
+.url-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+button, .btn {
+    background-color: #00a97f;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px 0;
+}
+button:hover, .btn:hover {
+    background-color: #008f6b;
+}
+.download-links {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 100px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.download-links a {
+    display: block;
+    margin: 10px 0;
+    padding: 12px;
+    background-color: #00a97f;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.download-links a:hover {
+    background-color: #008f6b;
+}
+.footer {
+    background-color: white;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+.fb-btn {
+    background-color: #4267B2;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.fb-btn:hover {
+    background-color: #365899;
+}
